@@ -11,7 +11,7 @@ with open("RXC1.exe", "rb") as exe:
     exe.seek(0x128A850,0)
     rx3 = exe.read(0x200000)
     exe.seek(0x148A850,0)
-    mx3 = exe.read(0x2000000)
+    mx3 = exe.read(0x200000)
 with open("Rock Man X" + ".sfc", "wb") as rx1out:
 	rx1out.write(rx1)
 	rx1out.close()
