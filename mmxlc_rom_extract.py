@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 with open("RXC1.exe", "rb") as exe:
-    exe.seek(0xB8A850,0)
+    exe.seek(0xB8C4D0,0)
     rx1 = exe.read(0x180000)
-    exe.seek(0xD8A850,0)
+    exe.seek(0xD8C4D0,0)
     mx1 = exe.read(0x180000)
-    exe.seek(0xF8A850,0)
+    exe.seek(0xF8C4D0,0)
     rx2 = exe.read(0x180000)
-    exe.seek(0x110A850,0)
+    exe.seek(0x110C4D0,0)
     mx2 = exe.read(0x180000)
-    exe.seek(0x128A850,0)
+    exe.seek(0x128C4D0,0)
     rx3 = exe.read(0x200000)
-    exe.seek(0x148A850,0)
+    exe.seek(0x148C4D0,0)
     mx3 = exe.read(0x200000)
 with open("Rock Man X" + ".sfc", "wb") as rx1out:
 	rx1out.write(rx1)
