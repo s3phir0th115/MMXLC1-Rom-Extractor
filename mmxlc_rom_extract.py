@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 import hashlib
-int_sha512 = "905e1d515a77193a23a79d6d92b7e414dca04bb629adc43ca02138a5e26c780baec79b82ec111bb61db4b6f8a07be522ecb90592e864568455c4d12f8cbbfbae"
+int_sha512 = "58101af83d473667537b9e27f2d5154831917ad63193644d4c6b6c69ac5341923801ac641ba023a7ecb4e7be026a7ea3c5059826d8d9020e845f60f075530728"
 jp_sha512 = "07d069b4cc9f20b385cd4500d956c8b8fdeb62d4c4668fc5a302446e718d2338308913e360d887fa25e4766dcd4304025f73360d0e49126f71a0fe865cd3e293"
 with open('RXC1.exe', "rb") as file_to_check:
     data = file_to_check.read()
     sha512sum = hashlib.sha512(data).hexdigest()
 if int_sha512 == sha512sum:
-    print("Checksum matches international release, using those offsets for extraction...")
+    print("Checksum matches latest known international release, using those offsets for extraction...")
     with open("RXC1.exe", "rb") as exe:
         exe.seek(0xB8C4E0,0)
         rx1 = exe.read(0x180000)
@@ -21,7 +21,7 @@ if int_sha512 == sha512sum:
         exe.seek(0x148C4E0,0)
         mx3 = exe.read(0x200000)
 elif jp_sha512 == sha512sum:
-    print("Checksum matches Japanese release, using those offsets for extraction...")
+    print("Checksum matches latest known Japanese release, using those offsets for extraction...")
     with open("RXC1.exe", "rb") as exe:
         exe.seek(0xB8C750,0)
         rx1 = exe.read(0x180000)
